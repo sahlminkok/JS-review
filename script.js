@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring an object and an Array
 
-const book = getBook(2);
+const book = getBook(1);
 book;
 
 // upon destructuring an object, we depend on the key property to extract the data
@@ -165,6 +165,25 @@ console.log(title, author, pages);
 
 // console.log(primaryGenre);
 
-const [primaryGenre, secondaryGenre] = genres;
+const [primaryGenre, secondaryGenre, ...OtherGenres] = genres; // rest operator
 
-console.log(primaryGenre);
+console.log(primaryGenre, OtherGenres);
+
+// spread operator with arrays
+
+const newGenres = [...genres, "epic fantasy"];
+
+console.log(newGenres);
+
+// spread operator with objects
+
+const updatedBook = {
+  ...book,
+
+  // adding a new property
+  moviePublicationDate: "2001-12-19",
+
+  // updating an existing property
+  pages: 2300,
+};
+updatedBook;
