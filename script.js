@@ -142,3 +142,29 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// Destructuring an object and an Array
+
+const book = getBook(2);
+book;
+
+// upon destructuring an object, we depend on the key property to extract the data
+
+// const title = book.title;
+// const author = book.author;
+
+const { title, author, pages, genres, hasMovieAdaptation, publicationDate } =
+  book;
+
+console.log(title, author, pages);
+
+// while upon destructuring an array, we depend on simply the order of the elements
+
+// const primaryGenre = genres[0];
+// const secondaryGenre = genres[1];
+
+// console.log(primaryGenre);
+
+const [primaryGenre, secondaryGenre] = genres;
+
+console.log(primaryGenre);
