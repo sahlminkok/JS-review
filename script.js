@@ -12,7 +12,7 @@ const data = [
       "novels",
       "literature",
     ],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 1216,
     translations: {
       spanish: "El señor de los anillos",
@@ -243,3 +243,15 @@ const essentialData = books.map((book) => ({
   author: book.author,
 }));
 essentialData;
+
+// Array Filter Method
+
+const longBooks = books.filter(
+  (book) => book.pages > 500 && book.hasMovieAdaptation
+);
+longBooks;
+
+const adventuresBooks = books
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+adventuresBooks;
