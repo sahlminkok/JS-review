@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring an object and an Array
 
-const book = getBook(1);
+const book = getBook(2);
 book;
 
 // upon destructuring an object, we depend on the key property to extract the data
@@ -188,9 +188,29 @@ const updatedBook = {
 };
 updatedBook;
 
+// Arrow function
+const date = (str) => str.split("-")[0];
+
 // Template literals
 
-const statement = `${title}, a ${pages}-page long book, was written by ${author} and published in ${
-  publicationDate.split("-")[0]
-}`;
-statement;
+const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${date(
+  publicationDate
+)}`;
+summary;
+
+// Short circuiting with &&, ||, ??
+
+// &&: If the first argument is true it returns the second
+console.log(true && "Something Else");
+
+// ||: If the first argument is 0, false, undefined, " ", null, it returns the 2nd argument
+console.log(0 || "Second argument");
+
+// .??: If the first argument is undefined, or null, it returns the 2nd argument
+console.log(false ?? "Something");
+
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+spanishTranslation;
+
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count;
