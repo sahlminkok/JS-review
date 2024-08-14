@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring an object and an Array
 
-const book = getBook(2);
+const book = getBook(3);
 book;
 
 // upon destructuring an object, we depend on the key property to extract the data
@@ -212,5 +212,15 @@ console.log(false ?? "Something");
 const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
 spanishTranslation;
 
-const count = book.reviews.librarything.reviewsCount ?? "no data";
+const count = book.reviews.librarything?.reviewsCount ?? "no data";
 count;
+
+// Optional chaining
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads?.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
