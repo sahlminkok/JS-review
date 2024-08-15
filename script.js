@@ -270,3 +270,27 @@ arr;
 
 const sortBooksByPages = books.slice().sort((a, b) => a.pages - b.pages);
 sortBooksByPages;
+
+// Working with immutable arrays
+
+// 1) Adding book object in an array
+const newBook = {
+  id: 6,
+  title: "Ruwan Bagaja",
+  author: "Abdullahi Abubakar Imam",
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2) Deleting book object from an array
+
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 5);
+booksAfterDelete;
+
+// 3) Updating book in an array
+
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book
+);
+booksAfterUpdate;
