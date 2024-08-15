@@ -260,3 +260,13 @@ adventuresBooks;
 
 const allBooksPages = books.reduce((acc, book) => acc + book.pages, 0);
 allBooksPages;
+
+// Array Sort Method
+
+const arr = [20, 8, 90, 3, 1];
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+
+const sortBooksByPages = books.slice().sort((a, b) => a.pages - b.pages);
+sortBooksByPages;
